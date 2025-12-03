@@ -11,5 +11,5 @@ Generator version: 7.14.0
 =end
 
 module BlackmanClient
-  VERSION = '0.0.7'
+  VERSION = '0.0.9'
 end

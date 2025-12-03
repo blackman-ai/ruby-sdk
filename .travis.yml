@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build blackman_client.gemspec
-  - gem install ./blackman_client-0.0.7.gem
+  - gem install ./blackman_client-0.0.9.gem

@@ -16,7 +16,7 @@ Official Ruby client for [Blackman AI](https://www.useblackman.ai) - The AI API 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'blackman_client', '~> 0.0.5'
+gem 'blackman_client', '~> 0.0.9'
 ```
 
 And then execute:
