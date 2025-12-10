@@ -14,17 +14,17 @@ require 'date'
 require 'time'
 
 module BlackmanClient
-  class Message
-    attr_accessor :content
+  class ImageUrl
+    # Optional detail level: \"auto\", \"low\", or \"high\"
+    attr_accessor :detail
 
-    # \"user\", \"assistant\", \"system\"
-    attr_accessor :role
+    attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'content' => :'content',
-        :'role' => :'role'
+        :'detail' => :'detail',
+        :'url' => :'url'
       }
     end
 
@@ -41,14 +41,15 @@ module BlackmanClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'content' => :'MessageContent',
-        :'role' => :'String'
+        :'detail' => :'String',
+        :'url' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'detail',
       ])
     end
 
@@ -56,28 +57,26 @@ module BlackmanClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `BlackmanClient::Message` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BlackmanClient::ImageUrl` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `BlackmanClient::Message`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BlackmanClient::ImageUrl`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'content')
-        self.content = attributes[:'content']
-      else
-        self.content = nil
+      if attributes.key?(:'detail')
+        self.detail = attributes[:'detail']
       end
 
-      if attributes.key?(:'role')
-        self.role = attributes[:'role']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       else
-        self.role = nil
+        self.url = nil
       end
     end
 
@@ -86,12 +85,8 @@ module BlackmanClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @content.nil?
-        invalid_properties.push('invalid value for "content", content cannot be nil.')
-      end
-
-      if @role.nil?
-        invalid_properties.push('invalid value for "role", role cannot be nil.')
+      if @url.nil?
+        invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
 
       invalid_properties
@@ -101,29 +96,18 @@ module BlackmanClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @content.nil?
-      return false if @role.nil?
+      return false if @url.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] content Value to be assigned
-    def content=(content)
-      if content.nil?
-        fail ArgumentError, 'content cannot be nil'
+    # @param [Object] url Value to be assigned
+    def url=(url)
+      if url.nil?
+        fail ArgumentError, 'url cannot be nil'
       end
 
-      @content = content
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] role Value to be assigned
-    def role=(role)
-      if role.nil?
-        fail ArgumentError, 'role cannot be nil'
-      end
-
-      @role = role
+      @url = url
     end
 
     # Checks equality by comparing each attribute.
@@ -131,8 +115,8 @@ module BlackmanClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          content == o.content &&
-          role == o.role
+          detail == o.detail &&
+          url == o.url
     end
 
     # @see the `==` method
@@ -144,7 +128,7 @@ module BlackmanClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content, role].hash
+      [detail, url].hash
     end
 
     # Builds the object from hash

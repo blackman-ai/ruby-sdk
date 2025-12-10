@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'blackman_client'
-  s.version     = '0.0.9'
+  s.version     = '0.0.10'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Blackman AI']
   s.email       = ['support@useblackman.ai']

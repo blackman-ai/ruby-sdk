@@ -25,7 +25,7 @@ BlackmanClient.configure do |config|
 end
 
 api_instance = BlackmanClient::CompletionsApi.new
-completion_request = BlackmanClient::CompletionRequest.new({messages: [BlackmanClient::Message.new({content: 'content_example', role: 'role_example'})], model: 'gpt-4', provider: BlackmanClient::Provider::OPEN_AI}) # CompletionRequest | 
+completion_request = BlackmanClient::CompletionRequest.new({messages: [BlackmanClient::Message.new({content: nil, role: 'role_example'})], model: 'gpt-4', provider: BlackmanClient::Provider::OPEN_AI}) # CompletionRequest | 
 opts = {
   x_provider_api_key: 'x_provider_api_key_example' # String | Optional provider API key to override stored or system keys
 }
